@@ -1,16 +1,15 @@
 package uy.edu.cei.mercadocei.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uy.edu.cei.mercadocei.mappers.ItemsMapper;
 import uy.edu.cei.mercadocei.models.Item;
 
 import java.util.List;
 
+// esto es un bean y por defecto es singleton y NO PUEDE TENER ESTADO
 @RestController
-@RequestMapping("/")
+@RequestMapping("/items")
 public class HomeController {
 
     private final ItemsMapper itemsMapper;
@@ -21,13 +20,19 @@ public class HomeController {
     }
 
     @GetMapping
-    public Item index() {
-        return this.itemsMapper.selectById(1L);
+    public List<Item> index() {
+        return this.itemsMapper.selectAll();
     }
 
-    @GetMapping("list")
-    public List<Item> list() {
-        return this.itemsMapper.selectAll();
+    @GetMapping("/{id}")
+    public Item show(@PathVariable("id") final Long id) {
+        return this.itemsMapper.selectById(id);
+    }
+
+    @PostMapping
+    public Item create(@RequestBody final Item item) {
+        this.itemsMapper.create(item);
+        return item;
     }
 
 }
