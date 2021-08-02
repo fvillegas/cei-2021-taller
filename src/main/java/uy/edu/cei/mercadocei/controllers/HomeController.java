@@ -35,4 +35,15 @@ public class HomeController {
         return item;
     }
 
+    @PutMapping("/{id}")
+    public void update(
+            @PathVariable("id") final Long id,
+            @RequestBody final Item item) {
+        final Item current = this.itemsMapper.selectById(id);
+        if (item.getName() != null) {
+            current.setName(item.getName());
+        }
+        this.itemsMapper.update(current);
+    }
+
 }

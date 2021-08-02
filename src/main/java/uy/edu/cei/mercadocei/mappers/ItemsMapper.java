@@ -22,4 +22,7 @@ public interface ItemsMapper {
     @Insert("INSERT INTO items VALUES(#{item.id}, #{item.name})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int create(@Param("item") Item item);
+
+    @Update("UPDATE items SET name=#{item.name} WHERE id=#{item.id}")
+    void update(@Param("item") Item item);
 }
