@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import uy.edu.cei.mercadocei.mappers.ItemsMapper;
 import uy.edu.cei.mercadocei.models.Item;
+import uy.edu.cei.mercadocei.services.ShoppingCartSender;
 
 import java.util.List;
 
@@ -13,10 +14,12 @@ import java.util.List;
 public class HomeController {
 
     private final ItemsMapper itemsMapper;
+    private final ShoppingCartSender itemSender;
 
     @Autowired
-    public HomeController(final ItemsMapper itemsMapper) {
+    public HomeController(final ItemsMapper itemsMapper, ShoppingCartSender itemSender) {
         this.itemsMapper = itemsMapper;
+        this.itemSender = itemSender;
     }
 
     @GetMapping
