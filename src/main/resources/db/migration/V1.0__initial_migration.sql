@@ -1,8 +1,26 @@
+CREATE EXTENSION "uuid-ossp";
+
 CREATE SEQUENCE items_sq;
 
-CREATE TABLE items (
-  id BIGINT PRIMARY KEY,
-  name VARCHAR
+CREATE TABLE items
+(
+    id   BIGINT PRIMARY KEY,
+    uuid uuid,
+    name VARCHAR
 );
 
-INSERT INTO items(id, name) VALUES (nextval('items_sq'), 'item test 1');
+ALTER TABLE items
+    ADD CONSTRAINT identity_uuid_unique UNIQUE (uuid);
+
+INSERT INTO items(id, uuid, name)
+VALUES (nextval('items_sq'), uuid_generate_v4(), 'item test 1');
+
+CREATE TABLE shopping_cart
+(
+    user_id uuid,
+    item_id uuid,
+    status boolean
+);
+
+ALTER TABLE shopping_cart
+    ADD FOREIGN KEY (item_id) REFERENCES items (uuid);
