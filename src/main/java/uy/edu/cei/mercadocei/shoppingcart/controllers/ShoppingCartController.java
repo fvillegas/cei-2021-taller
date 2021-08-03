@@ -1,4 +1,4 @@
-package uy.edu.cei.mercadocei.controllers;
+package uy.edu.cei.mercadocei.shoppingcart.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

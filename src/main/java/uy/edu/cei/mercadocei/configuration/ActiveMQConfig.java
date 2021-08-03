@@ -12,7 +12,6 @@ import org.springframework.jms.support.converter.MessageType;
 @Configuration
 @EnableJms
 public class ActiveMQConfig {
-    public static final String ORDER_QUEUE = "order-queue";
     public static final String SHOPPING_CART_QUEUE = "shopping-cart-queue";
 
     @Bean

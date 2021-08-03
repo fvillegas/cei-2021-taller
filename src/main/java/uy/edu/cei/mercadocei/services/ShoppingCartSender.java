@@ -1,6 +1,7 @@
 package uy.edu.cei.mercadocei.services;
 
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
@@ -11,10 +12,10 @@ import static uy.edu.cei.mercadocei.configuration.ActiveMQConfig.SHOPPING_CART_Q
 
 @Slf4j
 @Service
+@AllArgsConstructor
 public class ShoppingCartSender {
 
-    @Autowired
-    private JmsTemplate jmsTemplate;
+    private final JmsTemplate jmsTemplate;
 
     public void send(ShoppingCartMessage message) {
         if (log.isInfoEnabled()) {

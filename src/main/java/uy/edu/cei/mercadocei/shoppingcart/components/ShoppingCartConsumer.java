@@ -8,6 +8,7 @@ import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
+import uy.edu.cei.mercadocei.common.messages.Action;
 import uy.edu.cei.mercadocei.common.messages.ShoppingCartMessage;
 import uy.edu.cei.mercadocei.models.Item;
 import uy.edu.cei.mercadocei.shoppingcart.mappers.ShoppingCartMapper;
@@ -26,13 +27,11 @@ public class ShoppingCartConsumer {
     private final ShoppingCartMapper shoppingCartMapper;
 
     @JmsListener(destination = SHOPPING_CART_QUEUE)
-    public void receiveMessage(@Payload ShoppingCartMessage payload,
-                               @Headers MessageHeaders headers,
-                               Message message, Session session) {
+    public void receiveMessage(@Payload ShoppingCartMessage payload) {
         Item item = payload.getItem();
         UUID userUUID = payload.getUserUUID();
-        shoppingCartMapper.addItemToCart(userUUID, item);
+        if (payload.getAction() == Action.ADD_ITEM_TO_CART) {
+            shoppingCartMapper.addItemToCart(userUUID, item);
+        }
     }
-
-
 }
