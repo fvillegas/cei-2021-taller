@@ -28,6 +28,7 @@ public class ShoppingCartConsumer {
 
     @JmsListener(destination = SHOPPING_CART_QUEUE)
     public void receiveMessage(@Payload ShoppingCartMessage payload) {
+        log.info("shopping cart action: {}", payload);
         Item item = payload.getItem();
         UUID userUUID = payload.getUserUUID();
         if (payload.getAction() == Action.ADD_ITEM_TO_CART) {

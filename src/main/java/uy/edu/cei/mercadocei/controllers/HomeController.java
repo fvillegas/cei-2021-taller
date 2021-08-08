@@ -7,6 +7,7 @@ import uy.edu.cei.mercadocei.models.Item;
 import uy.edu.cei.mercadocei.services.ShoppingCartSender;
 
 import java.util.List;
+import java.util.UUID;
 
 // esto es un bean y por defecto es singleton y NO PUEDE TENER ESTADO
 @RestController
@@ -27,9 +28,9 @@ public class HomeController {
         return this.itemsMapper.selectAll();
     }
 
-    @GetMapping("/{id}")
-    public Item show(@PathVariable("id") final Long id) {
-        return this.itemsMapper.selectById(id);
+    @GetMapping("/{uuid}")
+    public Item show(@PathVariable("uuid") final UUID uuid) {
+        return this.itemsMapper.selectByUUID(uuid);
     }
 
     @PostMapping

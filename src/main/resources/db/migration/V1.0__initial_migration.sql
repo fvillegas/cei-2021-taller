@@ -13,7 +13,7 @@ ALTER TABLE items
     ADD CONSTRAINT identity_uuid_unique UNIQUE (uuid);
 
 INSERT INTO items(id, uuid, name)
-VALUES (nextval('items_sq'), uuid_generate_v4(), 'item test 1');
+VALUES (nextval('items_sq'), '263fae55-715e-4725-9594-48c40d5b94e3', 'item test 1');
 
 CREATE TABLE shopping_cart
 (

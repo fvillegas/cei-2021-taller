@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.*;
 import uy.edu.cei.mercadocei.models.Item;
 
 import java.util.List;
+import java.util.UUID;
 
 @Mapper
 public interface ItemsMapper {
@@ -11,7 +12,7 @@ public interface ItemsMapper {
     @Select("SELECT id, name FROM items WHERE id=#{id}")
     Item selectById(@Param("id") final Long id);
 
-    @Select("SELECT id, name FROM items")
+    @Select("SELECT id, uuid, name FROM items")
     List<Item> selectAll();
 
     @SelectKey(
@@ -25,4 +26,7 @@ public interface ItemsMapper {
 
     @Update("UPDATE items SET name=#{item.name} WHERE id=#{item.id}")
     void update(@Param("item") Item item);
+
+    @Select("SELECT id, uuid, name FROM items WHERE uuid=#{uuid}")
+    Item selectByUUID(@Param("uuid") UUID uuid);
 }
