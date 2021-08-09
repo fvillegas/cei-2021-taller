@@ -35,6 +35,7 @@ public class HomeController {
 
     @PostMapping
     public Item create(@RequestBody final Item item) {
+        item.setUuid(UUID.randomUUID());
         this.itemsMapper.create(item);
         return item;
     }

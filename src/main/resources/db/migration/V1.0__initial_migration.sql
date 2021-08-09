@@ -24,3 +24,5 @@ CREATE TABLE shopping_cart
 
 ALTER TABLE shopping_cart
     ADD FOREIGN KEY (item_id) REFERENCES items (uuid);
+
+CREATE INDEX shopping_cart_user_id_idx ON shopping_cart(user_id);

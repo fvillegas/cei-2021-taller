@@ -20,7 +20,7 @@ public interface ItemsMapper {
             keyProperty = "item.id",
             before = true,
             resultType = Long.class)
-    @Insert("INSERT INTO items VALUES(#{item.id}, #{item.name})")
+    @Insert("INSERT INTO items(id, uuid, name) VALUES(#{item.id}, #{item.uuid}, #{item.name})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int create(@Param("item") Item item);
 

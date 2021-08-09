@@ -18,9 +18,7 @@ public class ShoppingCartSender {
     private final JmsTemplate jmsTemplate;
 
     public void send(ShoppingCartMessage message) {
-        if (log.isInfoEnabled()) {
-            log.info("message: {}", message);
-        }
+        log.info("message: {}", message);
         jmsTemplate.convertAndSend(SHOPPING_CART_QUEUE, message);
     }
 }
