@@ -1,10 +1,10 @@
-package uy.edu.cei.mercadocei.controllers;
+package uy.edu.cei.mercadocei.web.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import uy.edu.cei.mercadocei.mappers.ItemsMapper;
-import uy.edu.cei.mercadocei.models.Item;
-import uy.edu.cei.mercadocei.services.ShoppingCartSender;
+import uy.edu.cei.mercadocei.web.mappers.ItemsMapper;
+import uy.edu.cei.mercadocei.common.models.Item;
+import uy.edu.cei.mercadocei.web.services.ShoppingCartSender;
 
 import java.util.List;
 import java.util.UUID;

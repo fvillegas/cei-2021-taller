@@ -1,4 +1,4 @@
-package uy.edu.cei.mercadocei.models;
+package uy.edu.cei.mercadocei.common.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;

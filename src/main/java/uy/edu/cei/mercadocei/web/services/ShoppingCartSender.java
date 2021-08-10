@@ -1,9 +1,8 @@
-package uy.edu.cei.mercadocei.services;
+package uy.edu.cei.mercadocei.web.services;
 
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 import uy.edu.cei.mercadocei.common.messages.ShoppingCartMessage;

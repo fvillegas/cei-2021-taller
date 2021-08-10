@@ -3,17 +3,13 @@ package uy.edu.cei.mercadocei.shoppingcart.components;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.annotation.JmsListener;
-import org.springframework.messaging.Message;
-import org.springframework.messaging.MessageHeaders;
-import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 import uy.edu.cei.mercadocei.common.messages.Action;
 import uy.edu.cei.mercadocei.common.messages.ShoppingCartMessage;
-import uy.edu.cei.mercadocei.models.Item;
+import uy.edu.cei.mercadocei.common.models.Item;
 import uy.edu.cei.mercadocei.shoppingcart.mappers.ShoppingCartMapper;
 
-import javax.jms.Session;
 import java.util.UUID;
 
 import static uy.edu.cei.mercadocei.configuration.ActiveMQConfig.SHOPPING_CART_QUEUE;

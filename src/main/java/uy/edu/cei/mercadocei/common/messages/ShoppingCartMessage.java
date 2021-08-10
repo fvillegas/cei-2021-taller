@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import uy.edu.cei.mercadocei.models.Item;
+import uy.edu.cei.mercadocei.common.models.Item;
 
 import java.util.UUID;
 

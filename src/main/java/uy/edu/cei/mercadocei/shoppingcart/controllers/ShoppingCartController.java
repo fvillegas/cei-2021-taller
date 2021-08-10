@@ -4,9 +4,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uy.edu.cei.mercadocei.common.messages.Action;
 import uy.edu.cei.mercadocei.common.messages.ShoppingCartMessage;
-import uy.edu.cei.mercadocei.models.Item;
-import uy.edu.cei.mercadocei.models.ShoppingCart;
-import uy.edu.cei.mercadocei.services.ShoppingCartSender;
+import uy.edu.cei.mercadocei.common.models.Item;
+import uy.edu.cei.mercadocei.web.services.ShoppingCartSender;
 import uy.edu.cei.mercadocei.shoppingcart.clients.IMSClient;
 import uy.edu.cei.mercadocei.shoppingcart.mappers.ShoppingCartMapper;
 

@@ -2,7 +2,7 @@ package uy.edu.cei.mercadocei.shoppingcart.clients;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import uy.edu.cei.mercadocei.models.Item;
+import uy.edu.cei.mercadocei.common.models.Item;
 
 import java.util.UUID;
 

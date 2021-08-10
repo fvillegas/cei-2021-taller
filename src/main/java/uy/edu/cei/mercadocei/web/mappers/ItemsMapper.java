@@ -1,7 +1,7 @@
-package uy.edu.cei.mercadocei.mappers;
+package uy.edu.cei.mercadocei.web.mappers;
 
 import org.apache.ibatis.annotations.*;
-import uy.edu.cei.mercadocei.models.Item;
+import uy.edu.cei.mercadocei.common.models.Item;
 
 import java.util.List;
 import java.util.UUID;
